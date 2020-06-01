@@ -7,7 +7,7 @@ const userSchema = mongoose.Schema({
     name : String,
     public_repos : Number,
     followers : Number,
-    biografia : String,
+    bio : String,
 },
 {
     timestamps : true,
