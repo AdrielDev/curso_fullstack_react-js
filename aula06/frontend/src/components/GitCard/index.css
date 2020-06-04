@@ -1,0 +1,40 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container .card {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    width: 500px;
+    height: 100px;
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+}
+
+.main-container .card #avatar {
+    width: 80px;
+    height: 80px;
+    background-color: rgb(74, 74, 219);
+    border-radius: 15px;
+}
+
+.main-container .card #info {
+    align-items: center;
+    padding: 10px 0 0 10px;
+}
+
+.main-container .card span {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-container .card #info p {
+    font-size: 12px;
+    color: rgb(145, 131, 113);
+    font-family: Arial, Helvetica, sans-serif;
+
+}
