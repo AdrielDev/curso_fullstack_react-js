@@ -4,14 +4,21 @@ const axios = require('axios');
 
 module.exports = {
     //login
-    async login (req, res) {
-    const username = await req.params.username;
-    const validation = await User.find({login: username});
-    if(validation.length === 0) {
-        res.json({'msg': 0});
-    } else {
-        res.json({'msg': 1});
-    }
+    async login(req, res) {
+        const username = await req.params.username;
+        const validation = await User.find({ login: username });
+        if (validation.length === 0) {
+            res.json({ 'msg': 0 });
+        } else {
+            res.json({ 'msg': 1 });
+        }
+    },
+
+    async showUserById (req, res) {
+        const userId = await req.params.id;
+        const result = await User.findById(userId);
+        res.json(result);
+        //console.log(userId);
     },
 
     async persistUser(req, res) {
@@ -29,10 +36,12 @@ module.exports = {
         })
         res.json(payload);
     },
+
     async listUsers(req, res) {
         const response = await User.find();
         res.json(response);
     },
+
     async getUserGit(req, res, next) {
         const response = await axios.get("https://api.github.com/users/adrieldev");
         /*const {login, avatar_url, company, public_repos, followers, bio:biografia, created_at} = response.data;
@@ -44,6 +53,7 @@ module.exports = {
         console.log(obJson);*/
         res.json(response.data);
     },
+
     async gitUser2020(req, res) {
         const response = await axios.get('https://api.github.com/users/leonardogandrade');
         const { login, created_at } = response.data;
